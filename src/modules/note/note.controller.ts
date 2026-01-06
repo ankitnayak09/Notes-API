@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import * as noteService from "./note.service";
-import { apiResponse } from "utils/apiResponse";
+import { apiResponse } from "../../utils/apiResponse";
 
 export const createNoteHandler = (req: Request, res: Response) => {
   const { title, content } = req.body;
