@@ -10,7 +10,7 @@ const app = express();
 app.use(requestLogger);
 app.use(express.json());
 app.use("/health", healthRouter);
-app.use("/note", noteRouter);
+app.use("/api/v1/note", noteRouter);
 
 app.use(notFound);
 app.use(errorHandler);
