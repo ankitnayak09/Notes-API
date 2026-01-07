@@ -13,3 +13,10 @@ export const updateNoteSchema = z.object({
     content: z.string().min(5).optional(),
   }),
 });
+
+export const listNotesSchema = z.object({
+  query: z.object({
+    page: z.string().optional(),
+    limit: z.string().optional(),
+  }),
+});

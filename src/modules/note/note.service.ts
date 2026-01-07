@@ -18,7 +18,17 @@ export const createNote = (title: string, content: string) => {
   return note;
 };
 
-export const getAllNotes = (): Note[] => notes;
+export const getPaginatedNotes = (page = 1, limit = 10) => {
+  const start = (page - 1) * limit;
+  const end = start + limit;
+
+  return {
+    data: notes.slice(start, end),
+    total: notes.length,
+    page,
+    limit,
+  };
+};
 
 export const getNoteById = (id: string): Note | undefined =>
   notes.find((note) => note.id === id);

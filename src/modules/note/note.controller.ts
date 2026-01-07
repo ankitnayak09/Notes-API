@@ -10,8 +10,10 @@ export const createNoteHandler = asyncHandler((req: Request, res: Response) => {
   res.status(201).json(apiResponse(note, "Note Created"));
 });
 
-export const getNotesHandler = asyncHandler((_: Request, res: Response) => {
-  res.json(apiResponse(noteService.getAllNotes()));
+export const getNotesHandler = asyncHandler((req: Request, res: Response) => {
+  const page = Number(req.query.page || 1);
+  const limit = Number(req.query.limit || 10);
+  res.json(apiResponse(noteService.getPaginatedNotes(page, limit)));
 });
 
 export const getNoteHandler = asyncHandler((req: Request, res: Response) => {
