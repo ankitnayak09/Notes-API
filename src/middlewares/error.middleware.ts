@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { ApiError } from "../utils/apiError";
+import { logger } from "../utils/logger";
 
 export const errorHandler = (
   err: Error,
@@ -14,7 +15,8 @@ export const errorHandler = (
     });
   }
 
-  console.log("Unhandled Error:", err);
+  logger.error(`Unhandled Error: ${err}`);
+  // console.log("Unhandled Error:", err);
 
   res.status(500).json({
     success: false,
