@@ -8,7 +8,7 @@ export const createNoteSchema = z.object({
 
 export const getNoteByIdSchema = z.object({
   params: z.object({
-    id: z.uuid("Missing ID"),
+    id: z.uuid("Not a Valid UUID"),
   }),
 });
 
